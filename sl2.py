@@ -1,4 +1,5 @@
 import sympy
+import constant
 
 debug = False
 
@@ -12,45 +13,6 @@ sl2[(y, h)] = 2 * y
 sl2[(y, x)] = - sl2[(x, y)]
 sl2[(h, x)] = - sl2[(x, h)]
 sl2[(h, y)] = - sl2[(y, h)]
-
-class Constant(sympy.NumberSymbol): 
-	is_real = True 
-	is_irrational = False 
-	is_algebraic = True 
-	is_NumberSymbol = True
-	is_integer = True
-	__slots__ = ['name', 'value'] 
-
-	def __new__(cls, name, value): 
-		self = super(Constant, cls).__new__(cls) 
-		self.name = name 
-		self.value = sympy.Float(value) 
-		return self 
-
-	def __getnewargs__(self): 
-		return (self.name,self.value) 
-
-	def _latex(self, printer): 
-		return printer.doprint(sympy.Symbol(self.name)) 
-
-	def _sympystr(self, printer): 
-		return printer.doprint(sympy.Symbol(self.name)) 
-
-	def _sympyrepr(self, printer): 
-		return printer.doprint(sympy.Symbol(self.name)) 
-
-	def _mathml(self, printer): 
-		return printer.doprint(sympy.Symbol(self.name)) 
-
-	def _as_mpf_val(self, prec): 
-		return self.value._as_mpf_val(prec)
-		
-def constants(cs):
-	results = ()
-	for c in cs.split(', '):
-		results += (Constant(c, 1), )
-		
-	return results
 
 indent = -1
 def print_indent(string):
@@ -197,4 +159,4 @@ def bracket(a, b):
 		indent = 0
 		raise
 		
-c, c1, c2, c3, d1, d2, d3 = constants('c, c1, c2, c3, d1, d2, d3')
+c, c1, c2, c3, d1, d2, d3 = constant.constants('c, c1, c2, c3, d1, d2, d3')
