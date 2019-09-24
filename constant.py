@@ -1,5 +1,6 @@
 import sympy
 
+# A sympy.NumberSymbol that allows us to treat it as a scalar when using the Lie bracket, i.e., [ca, b] = c [a, b]
 class Constant(sympy.NumberSymbol): 
 	is_real = True 
 	is_irrational = False 
