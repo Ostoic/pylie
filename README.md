@@ -22,4 +22,4 @@ above computations, then we can try b = xy + yx + (1/2) h^2.
 Thus we have show that b in L is a central element. Since sl2 is simple, hence so is L. This means b = 0, which allows us to conclude that 
 0 = xy + yx + (1/2)h^2.
 
-Proceeding in a similiar manner will yield a contradiction.
+Proceeding with similar calculations using the vector space structure of A will lead to a contradiction, proving such an L does not exist.
